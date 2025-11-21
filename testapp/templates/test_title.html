@@ -1,0 +1,31 @@
+  <!-- タイトルとナビゲーションボタン -->
+  <section class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <!-- タイトルと本文 -->
+        <h1 class="fw-light">Test Gallery</h1>
+        <p class="lead text-muted">
+          ニュースを見て,知識を深めていってください。
+          素敵なニュースとコメントをお待ちしています!</p>
+        <p>
+          <!-- ナビゲーションボタン -->
+          <div class="d-flex justify-content-center gap-2"></div>
+          {% if user.is_authenticated %}
+          <!-- ログイン中のボタン -->
+          <a href="{% url 'testapp:post' %}"
+             class="btn btn-primary my-2">投稿する</a>
+          <form method="post" action="{% url 'accounts:logout' %}" style="display:inline;">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-secondary">ログアウト</button>
+          </form>
+          {% else %}
+          <!-- ログイン状態ではない場合のボタン -->
+          <a href="{% url 'accounts:signup' %}"
+             class="btn btn-primary my-2">今すぐサインアップ</a>
+          <a href="{% url 'accounts:login' %}"
+             class="btn btn-secondary my-2">登録済みの方はログイン</a>
+          {% endif %}
+        </p>
+      </div>
+    </div>
+  </section>
