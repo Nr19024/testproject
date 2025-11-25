@@ -25,7 +25,7 @@ class ContactView(FormView):
         message=form.cleaned_data['message']
         subject='お問い合わせ:{}'.format(title)
         message=('送信者名:{0}\nメールアドレス:{1}\n タイトル:{2}\n メッセージ:\n{3}').format(name,email,title,message)
-        from_email=['kmm2559345@stu.o-hara.ac.jp']
+        from_email='kmm2559345@stu.o-hara.ac.jp'
         to_list=['kmm2559345@stu.o-hara.ac.jp']
         message=EmailMessage(subject=subject,
                              body=message,
