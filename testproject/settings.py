@@ -137,12 +137,14 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # メールサーバーへの接続設定
 # Gmailのアドレス、Gmailのアプリ用パスワードは
 # お使いのものを入力してください
-DEFAULT_FROM_EMAIL = 'xxxxxx@gmail.com'  # メールの送信元のアドレスを入力
-EMAIL_HOST = 'smtp.gmail.com'            # GmailのSMPTサーバー　　　
-EMAIL_PORT = 587                         # SMPTサーバーのポート番号
-EMAIL_HOST_USER = 'xxxxxx@gmail.com'     # Gmailのアドレスを入力
-EMAIL_HOST_PASSWORD = 'xxxxxxxxxxxxxxxx' # Gmailのアプリ用パスワードを入力
-EMAIL_USE_TLS = True # SMTP サーバと通信する際に TLS (セキュア) 接続を使う
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.office365.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'kmm2559345@stu.o-hara.ac.jp'
+EMAIL_HOST_PASSWORD = 'Renkon190224'
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 # mediaフォルダーの場所(BASE_DIR以下のmedia)を登録
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
